@@ -8,14 +8,23 @@
 	<persistence-unit name="Politics">
 		<description>Taller de encuestas de candidatos políticos</description>
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>ar.edu.politics.domain.Candidato</class>
+		<class>ar.edu.politics.domain.Partido</class>
+		<class>ar.edu.politics.domain.Promesa</class>
+		<class>ar.edu.politics.domain.Zona</class>
+
 		<properties>
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/politics" />
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.cj.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost/politics" />
 			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="laura" />
+			<property name="javax.persistence.jdbc.password"
+				value="root" />
 
 			<!-- propiedades de hibernate -->
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />

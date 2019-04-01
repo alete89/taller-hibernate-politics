@@ -1,16 +1,30 @@
 package ar.edu.politics.domain
 
 import java.time.LocalDate
+import javax.persistence.Column
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.Id
+import javax.persistence.Inheritance
+import javax.persistence.InheritanceType
 import org.eclipse.xtend.lib.annotations.Accessors
-import org.uqbar.commons.model.Entity
 import org.uqbar.commons.model.annotations.Observable
 import org.uqbar.commons.model.exceptions.UserException
 
 @Observable
 @Accessors
-class Partido extends Entity {
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
+class Partido{
 	
+	@Id
+	@GeneratedValue
+	Long id
+	
+	@Column(length=150)
 	String nombre
+	
+	@Column
 	int afiliados
 	
 	def void validar() {
@@ -29,8 +43,10 @@ class Partido extends Entity {
 }
 
 @Accessors
+@Entity
 class Peronista extends Partido {
 	
+	@Column
 	boolean populista
 	
 	new() {
@@ -39,9 +55,11 @@ class Peronista extends Partido {
 	
 }
 
+@Entity
 @Accessors
 class Preservativo extends Partido {
 
+	@Column
 	LocalDate fechaCreacion
 	
 	new() {
