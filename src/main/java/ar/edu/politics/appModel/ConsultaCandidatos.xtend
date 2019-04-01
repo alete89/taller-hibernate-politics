@@ -19,7 +19,11 @@ class ConsultaCandidatos {
 	}
 	
 	new() {
-		zonaSeleccionada = zonasDeVotacion.head
+		//zonaSeleccionada = zonasDeVotacion.head
+	}
+	
+	def void setZonaSeleccionada(Zona zona){
+		zonaSeleccionada = RepoZonas.instance.searchById(zona.id)
 	}
 	
 	@Dependencies("candidatoSeleccionado")
